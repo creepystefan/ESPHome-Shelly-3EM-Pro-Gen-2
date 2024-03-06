@@ -1,1 +1,15 @@
+substitutions:
+  ShellyIP: "HERE IP FROM SHELLY" 
+  interval: "1s"  ## Interval Time for Request
+  
+http_request:
+  useragent: esphome/device
+  timeout: 5s
+  id: getrequest
 
+#######      NEED Interval.yaml
+
+sensor:
+  - platform: template
+    name: total_act_power
+    id: total_act_power
