@@ -1,13 +1,14 @@
 substitutions:
   ShellyIP: "HERE IP FROM SHELLY" 
-
+  interval: "1s"  ## Interval Time for Request
+  
 http_request:
   useragent: esphome/device
-  timeout: 1s
+  timeout: 5s
   id: getrequest
 
 interval:
-  - interval: 1s
+  - interval: ${interval}
     then:
       - http_request.get:
           url: http://${ShellyIP}/rpc/Shelly.GetStatus
@@ -18,10 +19,10 @@ interval:
             then:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(shelly_power).publish_state(root["em:0"]["total_act_power"]);
+                      id(total_act_power).publish_state(root["em:0"]["total_act_power"]);
                   });
 
 sensor:
   - platform: template
-    name: testrequest
-    id: shelly_power
+    name: total_act_power
+    id: total_act_power
