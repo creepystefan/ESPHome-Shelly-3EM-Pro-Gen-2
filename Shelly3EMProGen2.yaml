@@ -1,9 +1,9 @@
 substitutions:
-  ShellyIP: "HERE IP FROM SHELLY"  #####   HERE IP FROM SHELLY
+  ShellyIP: "HERE IP FROM SHELLY" 
 
 http_request:
   useragent: esphome/device
-  timeout: 5s
+  timeout: 1s
   id: getrequest
 
 interval:
