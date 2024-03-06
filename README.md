@@ -1,0 +1,1 @@
+# ESPHome-Shelly-HTTP-Request
