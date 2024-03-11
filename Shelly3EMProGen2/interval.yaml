@@ -56,21 +56,7 @@
 
 
 interval:
-  - interval: ${interval}
-    then:
-      - http_request.get:
-          url: http://${ShellyIP}/rpc/Shelly.GetStatus
-          verify_ssl: false
-          headers:
-            Content-Type: application/json
-          on_response:
-            then:
-              - lambda: |-
-                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(total_act_power).publish_state(root["em:0"]["total_act_power"]);
-                  });
-
-  - interval: ${interval}
+  - interval: 1s
     then:
       - http_request.get:
           url: http://${ShellyIP}/rpc/Shelly.GetStatus
@@ -82,32 +68,7 @@ interval:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
                       id(id).publish_state(root["em:0"]["id"]);
-                  });
-
-  - interval: ${interval}
-    then:
-      - http_request.get:
-          url: http://${ShellyIP}/rpc/Shelly.GetStatus
-          verify_ssl: false
-          headers:
-            Content-Type: application/json
-          on_response:
-            then:
-              - lambda: |-
-                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(a_current).publish_state(root["em:0"]["a_current"]);
-                  });
-
-  - interval: ${interval}
-    then:
-      - http_request.get:
-          url: http://${ShellyIP}/rpc/Shelly.GetStatus
-          verify_ssl: false
-          headers:
-            Content-Type: application/json
-          on_response:
-            then:
-              - lambda: |-
-                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
                       id(a_voltage).publish_state(root["em:0"]["a_voltage"]);
+                      id(b_voltage).publish_state(root["em:0"]["b_voltage"]);
+                      id(c_voltage).publish_state(root["em:0"]["c_voltage"]);
                   });
