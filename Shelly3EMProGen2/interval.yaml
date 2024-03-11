@@ -39,7 +39,6 @@ interval:
                       id(total_act_power).publish_state(root["em:0"]["total_act_power"]);
                   });
 
-interval:
   - interval: ${interval}
     then:
       - http_request.get:
@@ -54,7 +53,6 @@ interval:
                       id(id).publish_state(root["em:0"]["id"]);
                   });
 
-interval:
   - interval: ${interval}
     then:
       - http_request.get:
