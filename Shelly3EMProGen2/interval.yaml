@@ -1,3 +1,29 @@
+#"id"
+#"a_current"
+#"a_voltage"
+#"a_act_power"
+#"a_aprt_power"
+#"a_pf"
+#"a_freq"
+#"b_current"
+#"b_voltage"
+#"b_act_power"
+#"b_aprt_power"
+#"b_pf"
+#"b_freq"
+#"c_current"
+#"c_voltage"
+#"c_act_power"
+#"c_aprt_power"
+#"c_pf"
+#"c_freq"
+#"n_current"
+#"total_current"
+#"total_act_power"
+#"total_aprt_power"
+
+
+
 interval:
   - interval: ${interval}
     then:
@@ -11,4 +37,19 @@ interval:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
                       id(total_act_power).publish_state(root["em:0"]["total_act_power"]);
+                  });
+
+interval:
+  - interval: ${interval}
+    then:
+      - http_request.get:
+          url: http://${ShellyIP}/rpc/Shelly.GetStatus
+          verify_ssl: false
+          headers:
+            Content-Type: application/json
+          on_response:
+            then:
+              - lambda: |-
+                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
+                      id(id).publish_state(root["em:0"]["id"]);
                   });
