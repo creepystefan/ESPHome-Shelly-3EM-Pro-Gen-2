@@ -13,3 +13,7 @@ sensor:
   - platform: template
     name: total_act_power
     id: total_act_power
+
+  - platform: template
+    name: ID
+    id: id
