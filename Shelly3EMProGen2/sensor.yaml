@@ -17,3 +17,7 @@ sensor:
   - platform: template
     name: ID
     id: id
+
+  - platform: template
+    name: a_current
+    id: a_current
