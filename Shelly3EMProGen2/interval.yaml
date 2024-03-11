@@ -1,5 +1,5 @@
-#"id"
-#"a_current"
+# #"id"
+# #"a_current"
 #"a_voltage"
 #"a_act_power"
 #"a_aprt_power"
@@ -52,4 +52,19 @@ interval:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
                       id(id).publish_state(root["em:0"]["id"]);
+                  });
+
+interval:
+  - interval: ${interval}
+    then:
+      - http_request.get:
+          url: http://${ShellyIP}/rpc/Shelly.GetStatus
+          verify_ssl: false
+          headers:
+            Content-Type: application/json
+          on_response:
+            then:
+              - lambda: |-
+                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
+                      id(a_current).publish_state(root["em:0"]["a_current"]);
                   });
