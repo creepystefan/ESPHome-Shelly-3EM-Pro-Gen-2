@@ -21,6 +21,37 @@
 #"total_current"
 #"total_act_power"
 #"total_aprt_power"
+# user_calibrated_phase
+# emdata
+#a_total_act_energy
+#a_total_act_ret_energy"
+#"b_total_act_energy"
+#"b_total_act_ret_energy
+#"c_total_act_energy"
+#"c_total_act_ret_energy
+#"total_act"
+#"total_act_ret"
+#"eth":{"ip":null},
+#"modbus":{},
+#"mqtt":{"connected":true},
+#"sys":{"mac":"MAC ADRESS"
+#"restart_required"
+#"time"
+#"unixtime"
+#"uptime"
+#"ram_size"
+#"ram_free"
+#"fs_size"
+#"fs_free"
+#"cfg_rev"
+#"kvs_rev"
+#"schedule_rev"
+#"webhook_rev"
+#"available_updates"{"stable":{"version":"1.2.2"}},
+#"reset_reason"
+#"temperature:0":{"id": 0,"tC":46.9, "tF":116.5},"
+#"wifi":{"sta_ip":"YOUR IP","status":"got ip","ssid":"YOUR SSID","rssi":-65}
+#"ws":{"connected":false}}
 
 
 
