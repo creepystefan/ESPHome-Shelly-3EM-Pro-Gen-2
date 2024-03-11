@@ -11,18 +11,17 @@ http_request:
 
 sensor:
   - platform: template
-    name: total_act_power
-    id: total_act_power
-
-  - platform: template
     name: ID
     id: id
-
-  - platform: template
-    name: a_current
-    id: a_current
-  
+    
   - platform: template
     name: a_voltage
     id: a_voltage
-  
+
+  - platform: template
+    name: b_voltage
+    id: b_voltage
+
+  - platform: template
+    name: c_voltage
+    id: c_voltage
