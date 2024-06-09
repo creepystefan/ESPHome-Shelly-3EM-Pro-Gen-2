@@ -71,4 +71,8 @@ interval:
                       id(a_voltage).publish_state(root["em:0"]["a_voltage"]);
                       id(b_voltage).publish_state(root["em:0"]["b_voltage"]);
                       id(c_voltage).publish_state(root["em:0"]["c_voltage"]);
+                      id(a_freq).publish_state(root["em:0"]["a_freq"]);
+                      id(b_freq).publish_state(root["em:0"]["b_freq"]);
+                      id(c_freq).publish_state(root["em:0"]["c_freq"]);
+                      
                   });
