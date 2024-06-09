@@ -25,3 +25,15 @@ sensor:
   - platform: template
     name: c_voltage
     id: c_voltage
+
+  - platform: template
+    name: a_freq
+    id: a_voltage
+
+  - platform: template
+    name: b_freq
+    id: b_freq
+
+  - platform: template
+    name: c_freq
+    id: c_freq
