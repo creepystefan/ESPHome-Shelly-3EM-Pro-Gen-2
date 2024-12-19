@@ -6,6 +6,7 @@ http_request:
   useragent: esphome/device
   timeout: 5s
   id: getrequest
+  verify_ssl: false
 
 #######      NEED Interval.yaml
 
