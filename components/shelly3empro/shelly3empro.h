@@ -13,6 +13,9 @@
 namespace esphome {
 namespace shelly3empro { 
 
+WiFiClient client;
+HTTPClient http;
+
 class Shelly3EMPRO : public PollingComponent {
  public:
   Shelly3EMPRO() : PollingComponent(10) {}
@@ -63,8 +66,8 @@ int http_get(String getstr)
   DynamicJsonDocument doc(2048);
  
 
-  WiFiClient client;
-  HTTPClient http;
+  //WiFiClient client;
+  //HTTPClient http;
   int pwr;
    
   if (http.begin(client, getstr)) 
