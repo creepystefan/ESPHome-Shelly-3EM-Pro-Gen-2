@@ -1,13 +1,17 @@
-#include <Arduino.h>
-#include "esphome.h"
-
+//#include <Arduino.h>
 //#include <ArduinoJson.h>
 //#include <ESP8266WiFi.h>
 //#include <ESP8266WiFiMulti.h>
 //#include <ESP8266HTTPClient.h>
 //#include <WiFiClient.h>
 //#include "wlan.h"
+#pragma once
 
+#include "esphome/core/component.h"
+#include "esphome.h"
+
+namespace esphome {
+namespace frame44_ { 
 
 //#define PIN        4 
 //#define NUMPIXELS 19 
