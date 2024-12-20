@@ -1,5 +1,5 @@
 //#include <Arduino.h>
-//#include <ArduinoJson.h>
+#include <ArduinoJson.h>
 //#include <ESP8266WiFi.h>
 //#include <ESP8266WiFiMulti.h>
 //#include <ESP8266HTTPClient.h>
@@ -24,7 +24,7 @@ class Shelly3EMPRO : public PollingComponent {
 
 String Shelly_IP = "192.168.178.22";
 
-//ESP8266WiFiMulti WiFiMulti;
+ESP8266WiFiMulti WiFiMulti;
 
 
 //const int led = LED_BUILTIN;
