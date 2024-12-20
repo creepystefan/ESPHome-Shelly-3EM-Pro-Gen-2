@@ -27,29 +27,29 @@ const int led = LED_BUILTIN;
 
 void setup() 
 {
-  pinMode(led, OUTPUT);
-  digitalWrite(led, LOW);
+//  pinMode(led, OUTPUT);
+//  digitalWrite(led, LOW);
 
-  Serial.begin(115200);
+//  Serial.begin(115200);
 
-  pinMode(PIN, OUTPUT);
+//  pinMode(PIN, OUTPUT);
  
   
-  Serial.println();
+//  Serial.println();
 
 /*  for (uint8_t t = 4; t > 0; t--) 
-  {*/
-    Serial.printf("[SETUP] WAIT ...\n");
+//  {*/
+//    Serial.printf("[SETUP] WAIT ...\n");
     Serial.flush();   Serial.println();
- /*   delay(1000);
-  }*/
-  WiFi.mode(WIFI_STA);
-  WiFiMulti.addAP(ssid, password);
+// /*   delay(1000);
+//  }*/
+//  WiFi.mode(WIFI_STA);
+//  WiFiMulti.addAP(ssid, password);
 
-  digitalWrite(led, HIGH);
+ // digitalWrite(led, HIGH);
 }
 
-int actled;
+//int actled;
 int pwr1;  //,pwr2,pwr3,pwrsum;
 
 int http_get(String getstr)
