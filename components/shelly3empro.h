@@ -22,9 +22,9 @@ class Shelly3EMPRO : public PollingComponent {
 //const char * steht im wlan.h
 //const char * steht im wlan.h
 
-String Shelly_IP = "shellypro3em-###.fritz.box";
+String Shelly_IP = "192.168.178.22";
 
-ESP8266WiFiMulti WiFiMulti;
+//ESP8266WiFiMulti WiFiMulti;
 
 
 //const int led = LED_BUILTIN;
