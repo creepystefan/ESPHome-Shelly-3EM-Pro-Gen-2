@@ -1,18 +1,19 @@
 #include <Arduino.h>
+#include "esphome.h"
 
-#include <ArduinoJson.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
-#include <ESP8266HTTPClient.h>
-#include <WiFiClient.h>
-#include "wlan.h"
+//#include <ArduinoJson.h>
+//#include <ESP8266WiFi.h>
+//#include <ESP8266WiFiMulti.h>
+//#include <ESP8266HTTPClient.h>
+//#include <WiFiClient.h>
+//#include "wlan.h"
 
 
-#define PIN        4 
-#define NUMPIXELS 19 
-
+//#define PIN        4 
+//#define NUMPIXELS 19 
 //const char * steht im wlan.h
 //const char * steht im wlan.h
+
 String Shelly_IP = "shellypro3em-###.fritz.box";
 
 ESP8266WiFiMulti WiFiMulti;
