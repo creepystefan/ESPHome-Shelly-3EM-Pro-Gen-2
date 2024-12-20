@@ -11,7 +11,11 @@
 #include "esphome.h"
 
 namespace esphome {
-namespace frame44_ { 
+namespace shelly3empro { 
+
+class Shelly3EMPRO : public PollingComponent {
+ public:
+  Shelly3EMPRO() : PollingComponent(10) {}
 
 //#define PIN        4 
 //#define NUMPIXELS 19 
@@ -115,4 +119,7 @@ void loop()
   delay(5000);
 }
 
+};
 
+}  // namespace shelly3empro
+}  // namespace esphome
