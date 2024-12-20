@@ -23,7 +23,7 @@ String Shelly_IP = "shellypro3em-###.fritz.box";
 ESP8266WiFiMulti WiFiMulti;
 
 
-const int led = LED_BUILTIN;
+//const int led = LED_BUILTIN;
 
 void setup() 
 {
@@ -102,18 +102,16 @@ int http_get(String getstr)
 void loop() 
 {
   // wait for WiFi connection
-  if ((WiFiMulti.run() == WL_CONNECTED)) 
-  {
-    digitalWrite(led, LOW);
+  //if ((WiFiMulti.run() == WL_CONNECTED)) 
+  //{
+  //  digitalWrite(led, LOW);
     pwr1 = http_get("http://" + Shelly_IP + "/rpc/Shelly.GetStatus");
  
-    digitalWrite(led, HIGH);
-  }
+   // digitalWrite(led, HIGH);
+  //}
        Serial.print("Ergebnis: ");
        Serial.println(pwr1);
   
-
-
   delay(5000);
 }
 
