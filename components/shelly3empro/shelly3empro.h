@@ -13,9 +13,6 @@
 namespace esphome {
 namespace shelly3empro { 
 
-WiFiClient client;
-HTTPClient http;
-
 class Shelly3EMPRO : public PollingComponent {
  public:
   Shelly3EMPRO() : PollingComponent(10) {}
