@@ -27,50 +27,19 @@ class Shelly3EMPRO : public PollingComponent {
 
 String Shelly_IP = "192.168.178.22";
 
-//ESP8266WiFiMulti WiFiMulti;
-
-
-//const int led = LED_BUILTIN;
-
-void setup() 
+int http_get(String getstr, int t)
 {
-//  pinMode(led, OUTPUT);
-//  digitalWrite(led, LOW);
-
-//  Serial.begin(115200);
-
-//  pinMode(PIN, OUTPUT);
  
-  
-//  Serial.println();
-
-/*  for (uint8_t t = 4; t > 0; t--) 
-//  {*/
-//    Serial.printf("[SETUP] WAIT ...\n");
-    Serial.flush();   Serial.println();
-// /*   delay(1000);
-//  }*/
-//  WiFi.mode(WIFI_STA);
-//  WiFiMulti.addAP(ssid, password);
-
- // digitalWrite(led, HIGH);
-}
-
-//int actled;
-int pwr1;  //,pwr2,pwr3,pwrsum;
-
-int http_get(String getstr)
-{
-  //StaticJsonDocument<2000> doc;
-  
   DynamicJsonDocument doc(2048);
- 
 
-  //WiFiClient client;
-  //HTTPClient http;
-  int pwr;
-   
-  if (http.begin(client, getstr)) 
+  WiFiClient client;
+  HTTPClient http;
+  int pwr, pwt ;
+
+  if (t == 1) { getstr = "http://" + Shelly_IP +  "/rpc/Shelly.GetStatus" ; }   // Shelly PRO 3EM 
+  else {        getstr = "http://" + Shelly_IP + "/status" ; }                  // Shelly EM, 1PM, 3PM
+  
+  if (http.begin(client,getstr)) 
   {  
     int httpCode = http.GET();         
     if (httpCode > 0) 
@@ -80,47 +49,35 @@ int http_get(String getstr)
         String payload = http.getString();
         //Serial.println(payload);
         DeserializationError error = deserializeJson(doc, payload);
-        
-        serializeJsonPretty(doc, Serial);  // nur Debug
+        if (DEBUG) {serializeJsonPretty(doc, Serial); } // nur Debug
         
         if (error) 
         {
+          if (DEBUG) {
           Serial.print(F("deserializeJson() failed: "));
-          Serial.println(error.f_str());
-        }
-          pwr = doc["em:0"]["total_act_power"];
-           
-          
-          //Serial.println();
-          //Serial.print("Ergebnis: ");
-          //Serial.println(pwr);
-       
-      }
+          Serial.println(error.f_str());}
+           pwr = -99999;
+        } else {
+          pwr = doc["total_power"] ;                              // Shelly 1PM
+          pwt = doc["meters"]["0"]["power"]  ; pwr = pwr + pwt ;  // Shelly EM
+          pwt = doc["emeters"]["0"]["power"] ; pwr = pwr + pwt ;  // Shelly 3EM  
+          pwt = doc["em:0"]["total_act_power"];pwr = pwr + pwt ;  // Shelly PRO 3EM 
+        } 
     } else {
-      Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
-    }
+      if (DEBUG) {Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());}
+       pwr = -99999;
+    }  
     http.end();
-  } else {
-    Serial.printf("[HTTP} Unable to connect\n");
-  }
+  } else {      
+    pwr = -99999;   
+    if (DEBUG) {Serial.printf("[HTTP} Unable to connect\n");}
+  }  
+  } else {      
+    pwr = -99999;  }
   return pwr;
 }
-
-void loop() 
-{
-  // wait for WiFi connection
-  //if ((WiFiMulti.run() == WL_CONNECTED)) 
-  //{
-  //  digitalWrite(led, LOW);
-    pwr1 = http_get("http://" + Shelly_IP + "/rpc/Shelly.GetStatus");
- 
-   // digitalWrite(led, HIGH);
-  //}
-       Serial.print("Ergebnis: ");
-       Serial.println(pwr1);
-  
-  delay(5000);
-}
+// wenn die Wattzahl -99999 ergibt liegt ein Fehler vor oder es werden 100kW eingespeist
+// Ende Funktion  
 
 };
 
