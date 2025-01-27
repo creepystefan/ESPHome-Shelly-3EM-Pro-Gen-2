@@ -53,26 +53,41 @@
 #"wifi":{"sta_ip":"YOUR IP","status":"got ip","ssid":"YOUR SSID","rssi":-65}
 #"ws":{"connected":false}}
 
-
-
 interval:
   - interval: 1s
     then:
       - http_request.get:
           url: http://${ShellyIP}/rpc/Shelly.GetStatus
-          #verify_ssl: false
+          verify_ssl: false
           headers:
             Content-Type: application/json
+          capture_response: true
+          max_response_buffer_size: 4096
           on_response:
             then:
               - lambda: |-
-                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(id).publish_state(root["em:0"]["id"]);
-                      id(a_voltage).publish_state(root["em:0"]["a_voltage"]);
-                      id(b_voltage).publish_state(root["em:0"]["b_voltage"]);
-                      id(c_voltage).publish_state(root["em:0"]["c_voltage"]);
-                      id(a_freq).publish_state(root["em:0"]["a_freq"]);
-                      id(b_freq).publish_state(root["em:0"]["b_freq"]);
-                      id(c_freq).publish_state(root["em:0"]["c_freq"]);
-                      
+                  json::parse_json(body, [](JsonObject root) -> bool {
+                      id(id).publish_state(root["em:0"]["id"].as< float >());
+                      id(a_voltage).publish_state(root["em:0"]["a_voltage"].as< float >());
+                      id(b_voltage).publish_state(root["em:0"]["b_voltage"].as< float >());
+                      id(c_voltage).publish_state(root["em:0"]["c_voltage"].as< float >());
+                      id(a_freq).publish_state(root["em:0"]["a_freq"].as< float >());
+                      id(b_freq).publish_state(root["em:0"]["b_freq"].as< float >());
+                      id(c_freq).publish_state(root["em:0"]["c_freq"].as< float >());
+                      return true;
                   });
+
+# https://github.com/esphome/issues/issues/5951
+# https://github.com/XavierBerger/Solar-Router-for-ESPHome/blob/main/solar_router/power_meter_shelly_em.yaml
+ #          then:
+ #             - lambda: |-
+ #                 json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
+ #                     id(id).publish_state(root["em:0"]["id"]);
+ #                     id(a_voltage).publish_state(root["em:0"]["a_voltage"]);
+ #                     id(b_voltage).publish_state(root["em:0"]["b_voltage"]);
+ #                     id(c_voltage).publish_state(root["em:0"]["c_voltage"]);
+ #                     id(a_freq).publish_state(root["em:0"]["a_freq"]);
+ #                     id(b_freq).publish_state(root["em:0"]["b_freq"]);
+ #                     id(c_freq).publish_state(root["em:0"]["c_freq"]);
+ #                     
+ #                 });
