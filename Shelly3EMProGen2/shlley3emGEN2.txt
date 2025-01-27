@@ -1,0 +1,90 @@
+{
+    "ble": {},
+    "bthome": {
+        "errors": [
+            "bluetooth_disabled"
+        ]
+    },
+    "cloud": {
+        "connected": false
+    },
+    "em:0": {
+        "id": 0,
+        "a_current": 0.897,
+        "a_voltage": 232,
+        "a_act_power": 165.2,
+        "a_aprt_power": 208.1,
+        "a_pf": 0.79,
+        "a_freq": 50,
+        "b_current": 0.128,
+        "b_voltage": 231,
+        "b_act_power": 1.4,
+        "b_aprt_power": 29.6,
+        "b_pf": 0.06,
+        "b_freq": 50,
+        "c_current": 0.309,
+        "c_voltage": 231.8,
+        "c_act_power": 40.9,
+        "c_aprt_power": 71.7,
+        "c_pf": 0.57,
+        "c_freq": 50,
+        "n_current": null,
+        "total_current": 1.335,
+        "total_act_power": 207.49,
+        "total_aprt_power": 309.351,
+        "user_calibrated_phase": []
+    },
+    "emdata:0": {
+        "id": 0,
+        "a_total_act_energy": 1460996.23,
+        "a_total_act_ret_energy": 64202.36,
+        "b_total_act_energy": 195320.42,
+        "b_total_act_ret_energy": 238.84,
+        "c_total_act_energy": 872281.61,
+        "c_total_act_ret_energy": 9.58,
+        "total_act": 2528598.27,
+        "total_act_ret": 64450.77
+    },
+    "eth": {
+        "ip": null
+    },
+    "modbus": {},
+    "mqtt": {
+        "connected": false
+    },
+    "sys": {
+        "mac": "xxxxxxxxx",
+        "restart_required": true,
+        "time": "19:43",
+        "unixtime": 1738003420,
+        "uptime": 6475422,
+        "ram_size": 247044,
+        "ram_free": 102812,
+        "fs_size": 524288,
+        "fs_free": 180224,
+        "cfg_rev": 38,
+        "kvs_rev": 1,
+        "schedule_rev": 0,
+        "webhook_rev": 0,
+        "available_updates": {
+            "beta": {
+                "version": "1.5.0-beta1"
+            }
+        },
+        "reset_reason": 3
+    },
+    "temperature:0": {
+        "id": 0,
+        "tC": 47.4,
+        "tF": 117.3
+    },
+    "wifi": {
+        "sta_ip": "xxx.xxx.xxx.xxx",
+        "status": "got ip",
+        "ssid": "WIFI-SSID",
+        "rssi": -58
+    },
+    "ws": {
+        "connected": false
+    }
+}
