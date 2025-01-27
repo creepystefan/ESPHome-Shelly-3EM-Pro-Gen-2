@@ -68,9 +68,19 @@ interval:
               - lambda: |-
                   json::parse_json(body, [](JsonObject root) -> bool {
                       id(id).publish_state(root["em:0"]["id"].as< float >());
+                      
                       id(a_voltage).publish_state(root["em:0"]["a_voltage"].as< float >());
+                      id(a_current).publish_state(root["em:0"]["a_current"].as< float >());
+                      id(a_freq).publish_state(root["em:0"]["a_freq"].as< float >());
+                      
                       id(b_voltage).publish_state(root["em:0"]["b_voltage"].as< float >());
+                      id(b_current).publish_state(root["em:0"]["b_current"].as< float >());
+                      id(b_freq).publish_state(root["em:0"]["b_freq"].as< float >());
+                      
                       id(c_voltage).publish_state(root["em:0"]["c_voltage"].as< float >());
+                      id(c_current).publish_state(root["em:0"]["c_current"].as< float >());
+                      id(c_freq).publish_state(root["em:0"]["c_freq"].as< float >());
+                      
                       return true;
 
 
