@@ -72,20 +72,25 @@ interval:
                       id(a_voltage).publish_state(root["em:0"]["a_voltage"].as< float >());
                       id(a_current).publish_state(root["em:0"]["a_current"].as< float >());
                       id(a_freq).publish_state(root["em:0"]["a_freq"].as< float >());
-                      
+                      id(a_act_power).publish_state(root["em:0"]["a_act_power"].as< float >());
+                      id(a_aprt_power).publish_state(root["em:0"]["a_aprt_power"].as< float >());
+                      id(a_pf).publish_state(root["em:0"]["a_pf"].as< float >());
+
                       id(b_voltage).publish_state(root["em:0"]["b_voltage"].as< float >());
                       id(b_current).publish_state(root["em:0"]["b_current"].as< float >());
                       id(b_freq).publish_state(root["em:0"]["b_freq"].as< float >());
+                      id(b_act_power).publish_state(root["em:0"]["b_act_power"].as< float >());
+                      id(b_aprt_power).publish_state(root["em:0"]["b_aprt_power"].as< float >());
+                      id(b_pf).publish_state(root["em:0"]["b_pf"].as< float >());
                       
                       id(c_voltage).publish_state(root["em:0"]["c_voltage"].as< float >());
                       id(c_current).publish_state(root["em:0"]["c_current"].as< float >());
                       id(c_freq).publish_state(root["em:0"]["c_freq"].as< float >());
-                      
+                      id(c_act_power).publish_state(root["em:0"]["c_act_power"].as< float >());
+                      id(c_aprt_power).publish_state(root["em:0"]["c_aprt_power"].as< float >());
+                      id(c_pf).publish_state(root["em:0"]["c_pf"].as< float >());
+                                          
                       return true;
-
-
-
-                      
                   });
 
 # https://github.com/esphome/issues/issues/5951
