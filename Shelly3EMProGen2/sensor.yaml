@@ -7,6 +7,8 @@ http_request:
   timeout: 5s
   id: getrequest
   verify_ssl: false
+  watchdog_timeout: 7s  # more as timeout
+  
 
 #######      NEED Interval.yaml
 
