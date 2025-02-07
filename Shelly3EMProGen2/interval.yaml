@@ -1,4 +1,12 @@
+substitutions:
+  ShellyIP: "HERE IP FROM SHELLY" 
+    
+http_request:
+  useragent: esphome/device
+  verify_ssl: false
+  watchdog_timeout: 7s  # more as timeout
 
+  
 interval:
   - interval: 1s
     then:
