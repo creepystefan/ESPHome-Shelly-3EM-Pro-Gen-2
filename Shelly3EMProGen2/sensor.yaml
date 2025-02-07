@@ -1,17 +1,3 @@
-substitutions:
-  ShellyIP: "HERE IP FROM SHELLY" 
-  interval: "1s"  ## Interval Time for Request
-  
-http_request:
-  useragent: esphome/device
-  timeout: 5s
-  id: getrequest
-  verify_ssl: false
-  watchdog_timeout: 7s  # more as timeout
-  
-
-#######      NEED Interval.yaml
-
 sensor:
   - platform: template
     name: ID
