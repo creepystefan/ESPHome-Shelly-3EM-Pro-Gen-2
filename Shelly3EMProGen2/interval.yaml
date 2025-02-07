@@ -1,47 +1,9 @@
-#"n_current"
-#"total_current"
-#"total_act_power"
-#"total_aprt_power"
-# user_calibrated_phase
-# emdata
-#a_total_act_energy
-#a_total_act_ret_energy"
-#"b_total_act_energy"
-#"b_total_act_ret_energy
-#"c_total_act_energy"
-#"c_total_act_ret_energy
-#"total_act"
-#"total_act_ret"
-#"eth":{"ip":null},
-#"modbus":{},
-#"mqtt":{"connected":true},
-#"sys":{"mac":"MAC ADRESS"
-#"restart_required"
-#"time"
-#"unixtime"
-#"uptime"
-#"ram_size"
-#"ram_free"
-#"fs_size"
-#"fs_free"
-#"cfg_rev"
-#"kvs_rev"
-#"schedule_rev"
-#"webhook_rev"
-#"available_updates"{"stable":{"version":"1.2.2"}},
-#"reset_reason"
-#"temperature:0":{"id": 0,"tC":46.9, "tF":116.5},"
-#"wifi":{"sta_ip":"YOUR IP","status":"got ip","ssid":"YOUR SSID","rssi":-65}
-#"ws":{"connected":false}}
 
 interval:
   - interval: 1s
     then:
       - http_request.get:
           url: http://${ShellyIP}/rpc/Shelly.GetStatus
-          verify_ssl: false
-          headers:
-            Content-Type: application/json
           capture_response: true
           max_response_buffer_size: 4096
           on_response:
@@ -74,17 +36,7 @@ interval:
                       return true;
                   });
 
-# https://github.com/esphome/issues/issues/5951
-# https://github.com/XavierBerger/Solar-Router-for-ESPHome/blob/main/solar_router/power_meter_shelly_em.yaml
- #          then:
- #             - lambda: |-
- #                 json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
- #                     id(id).publish_state(root["em:0"]["id"]);
- #                     id(a_voltage).publish_state(root["em:0"]["a_voltage"]);
- #                     id(b_voltage).publish_state(root["em:0"]["b_voltage"]);
- #                     id(c_voltage).publish_state(root["em:0"]["c_voltage"]);
- #                     id(a_freq).publish_state(root["em:0"]["a_freq"]);
- #                     id(b_freq).publish_state(root["em:0"]["b_freq"]);
+
  #                     id(c_freq).publish_state(root["em:0"]["c_freq"]);
  #                     
  #                 });
