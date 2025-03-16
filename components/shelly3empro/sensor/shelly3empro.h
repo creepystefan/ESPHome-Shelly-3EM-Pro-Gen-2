@@ -2,37 +2,28 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/sensor/sensor.h"
-#include "esphome/components/modbus/modbus.h"
 
-#include <vector>
 
 namespace esphome {
 namespace shelly3em {
 
-#define XY6020_SENSOR(name) \
+#define SHELLY3EM_SENSOR(name) \
  protected: \
   sensor::Sensor *name##_sensor_{nullptr}; \
 \
  public: \
   void set_##name##_sensor(sensor::Sensor *(name)) { this->name##_sensor_ = name; }
 
-class XY6020Sensor : public PollingComponent, public modbus::ModbusDevice {
+class Shelly3emSensor : public PollingComponent {
  public:
-  XY6020_SENSOR(seted_output_voltage)
-  XY6020_SENSOR(seted_output_current)
-  XY6020_SENSOR(output_voltage)
-  XY6020_SENSOR(output_current)
-  XY6020_SENSOR(output_power)
-  XY6020_SENSOR(input_voltage)
-  XY6020_SENSOR(temperature_intern)
-  XY6020_SENSOR(temperature_extern)
-  XY6020_SENSOR(model)
-  XY6020_SENSOR(software_version)
+  SHELLY3EM_SENSOR(A_voltage)
+  SHELLY3EM_SENSOR(B_voltage)
+  
   
   void update() override;
  
 
-  void on_modbus_data(const std::vector<uint8_t> &data) override;
+  //void on_modbus_data(const std::vector<uint8_t> &data) override;
 
   void dump_config() override;
 };
