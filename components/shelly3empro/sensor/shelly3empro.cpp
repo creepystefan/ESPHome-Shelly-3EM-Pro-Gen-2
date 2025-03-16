@@ -60,18 +60,10 @@ auto xy6020_get_float = [&](size_t i, float unit) -> float {
 void XY6020Sensor::update() {this->send(MODBUS_CMD_READ_IN_REGISTERS, 0, MODBUS_REGISTER_COUNT);}
 //void XY6020::update50() {this->send(MODBUS_CMD_READ_IN_REGISTERS, 50, MODBUS_REGISTER_COUNT);}
 void XY6020Sensor::dump_config() {
-  ESP_LOGCONFIG(TAG, "XY6020:");
-  ESP_LOGCONFIG(TAG, "  Address: 0x%02X", this->address_);
-  LOG_SENSOR("  ", "seted Output Voltage", this->seted_output_voltage_sensor_);
-  LOG_SENSOR("  ", "seted Output Current", this->seted_output_current_sensor_);
-  LOG_SENSOR("  ", "Output Voltage", this->output_voltage_sensor_);
-  LOG_SENSOR("  ", "Output Current", this->output_current_sensor_);
-  LOG_SENSOR("  ", "Output Power", this->output_current_sensor_);
-  LOG_SENSOR("  ", "Input Voltage", this->input_voltage_sensor_);
-  LOG_SENSOR("  ", "Temperature Intern", this->temperature_intern_sensor_);
-  LOG_SENSOR("  ", "Temperature Extern", this->temperature_extern_sensor_);
-  LOG_SENSOR("  ", "Model", this->model_sensor_);
-  LOG_SENSOR("  ", "Software Version", this->software_version_sensor_);  
+  ESP_LOGCONFIG(TAG, "Shelly Sensor:");
+  
+  LOG_SENSOR("  ", "A-Voltage", this->model_sensor_);
+  LOG_SENSOR("  ", "B-Voltage", this->software_version_sensor_);  
 }
 
 }  // namespace xy6020
