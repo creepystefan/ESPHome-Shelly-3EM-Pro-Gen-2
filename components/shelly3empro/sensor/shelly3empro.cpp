@@ -1,25 +1,23 @@
-#include "xy6020_sensor.h"
-#include "xy6020register_sensor.h"
+#include "shelly3empro.h"
 #include "esphome/core/log.h"
 
-// ORIGInAL from selec_meter
-
 namespace esphome {
-namespace xy6020 {
+namespace shelly3em {
 
-static const char *const TAG = "xy6020";
+static const char *const TAG = "Shelly3EMPro";
 
-static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x04;
-static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
+//static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x04;
+//static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
 //static const uint8_t MODBUS_REGISTER_COUNT50 = 50;  // 20 x 16-bit registers
 
 
-void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
-  if (data.size() < MODBUS_REGISTER_COUNT * 2) {
-    ESP_LOGW(TAG, "Invalid size for XY6020!");
-    return;
-  }
-  auto xy6020_get_float = [&](size_t i, float unit) -> float {  
+//void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
+//  if (data.size() < MODBUS_REGISTER_COUNT * 2) {
+//    ESP_LOGW(TAG, "Invalid size for XY6020!");
+//    return;
+//  }
+ 
+auto xy6020_get_float = [&](size_t i, float unit) -> float {  
     uint32_t temp = encode_uint32(data[i + 2], data[i + 3], data[i], data[i + 1]);
     float f;
     memcpy(&f, &temp, sizeof(f));
