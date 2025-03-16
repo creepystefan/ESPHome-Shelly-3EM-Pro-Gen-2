@@ -7,7 +7,7 @@
 #include <vector>
 
 namespace esphome {
-namespace xy6020 {
+namespace shelly3em {
 
 #define XY6020_SENSOR(name) \
  protected: \
