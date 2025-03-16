@@ -5,24 +5,8 @@ namespace esphome {
 namespace shelly3em {
 
 static const char *const TAG = "Shelly3EMPro";
-
-//static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x04;
-//static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
-//static const uint8_t MODBUS_REGISTER_COUNT50 = 50;  // 20 x 16-bit registers
-
-
-//void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
-//  if (data.size() < MODBUS_REGISTER_COUNT * 2) {
-//    ESP_LOGW(TAG, "Invalid size for XY6020!");
-//    return;
-//  }
  
-auto xy6020_get_float = [&](size_t i, float unit) -> float {  
-    uint32_t temp = encode_uint32(data[i + 2], data[i + 3], data[i], data[i + 1]);
-    float f;
-    memcpy(&f, &temp, sizeof(f));
-    return (f * unit);
-  };
+
   float seted_output_voltage = xy6020_get_float(XY6020_SETED_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);         //0x00
   float seted_output_current = xy6020_get_float(XY6020_SETED_OUTPUT_CURRENT * 2, NO_DEC_UNIT);         //0x01
   float output_voltage = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);         //0x02
