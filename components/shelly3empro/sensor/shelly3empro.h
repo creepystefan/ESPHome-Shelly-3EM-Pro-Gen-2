@@ -16,15 +16,12 @@ namespace shelly3em {
 
 class Shelly3emSensor : public PollingComponent {
  public:
-  SHELLY3EM_SENSOR(A_voltage)
-  SHELLY3EM_SENSOR(B_voltage)
+  SHELLY3EM_SENSOR(a_voltage)
+  SHELLY3EM_SENSOR(b_voltage)
   
   
   void update() override;
  
-
-  //void on_modbus_data(const std::vector<uint8_t> &data) override;
-
   void dump_config() override;
 };
 
