@@ -1,9 +1,9 @@
 esphome:
-  name: modbus_tcp_with_interval
+  name: shelly_modbus_tcp
   platform: ESP32
   board: esp32dev
   includes:
-    - modbus_tcp_component.h
+    - modbus_tcp_shelly.h
 
 wifi:
   ssid: "your_wifi_ssid"
