@@ -39,7 +39,7 @@ WiFiClient client;
         0x00, 0x06,  // Length
         0x01,        // Unit ID
         //(uint8_t functioncode_),
-        0x04,        // Function Code (COIL)
+        0x01,        // Function Code (COIL)
         (uint8_t)((register_address_ >> 8) & 0xFF),  // Start Address (High Byte)
         (uint8_t)(register_address_ & 0xFF),        // Start Address (Low Byte)
         0x00, 0x02   // Quantity (Read 2 Registers = 32 bits for FP32)
