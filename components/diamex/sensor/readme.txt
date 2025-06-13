@@ -1,3 +1,7 @@
+external_components:
+  - source: github://creepystefan/ESPHome-Shelly-HTTP-Request
+
+
 
 sensor:
   - platform: dimplex
