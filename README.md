@@ -46,3 +46,7 @@ sensor:
 
 # helpful link
 https://loxwiki.atlassian.net/wiki/spaces/LOX/pages/1618182667/Shelly+Pro+per+UDP
+https://shelly-api-docs.shelly.cloud/gen2/ComponentsAndServices/Modbus/
+https://shelly-api-docs.shelly.cloud/gen2/ComponentsAndServices/EM/#modbus-registers
+https://shelly-api-docs.shelly.cloud/gen2/ComponentsAndServices/EMData/#modbus-registers
+
