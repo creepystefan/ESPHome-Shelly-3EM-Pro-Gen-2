@@ -6,7 +6,7 @@
 # External Component
 ```yaml
 external_components:
-  - source: github://creepystefan/ESPHome-Shelly-HTTP-Request
+  - source: github://creepystefan/ESPHome-Shelly-3EM-Pro-Gen-2
     refresh: 0s
 ```
 
