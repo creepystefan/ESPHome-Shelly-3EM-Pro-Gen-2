@@ -1,3 +1,7 @@
+external_components:
+  - source: github://creepystefan/esphome_tcp
+    refresh: 0s
+
 modbustcp:
   - id: modbustesttcp
     host: 192.168.178.46
