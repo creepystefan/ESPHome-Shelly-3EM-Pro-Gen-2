@@ -37,7 +37,7 @@ sensor:
   
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
-    name: A-Power
+    name: A-active-Power
     address: 1025
     value_type: FP32  
     register_type: read
@@ -45,6 +45,18 @@ sensor:
     device_class: "power"
     state_class: "measurement"
     accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: A-apparent-Power
+    address: 1027
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "VA"
+    device_class: "apparent_power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
   
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
