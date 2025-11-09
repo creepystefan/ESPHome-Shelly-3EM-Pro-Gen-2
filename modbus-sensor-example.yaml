@@ -14,8 +14,42 @@ modbustcp_controller:
     update_interval: 1s
 
 sensor:
+  ## Total
 
-  # Phase A
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: Total-Current
+    address: 1012
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "A"
+    device_class: "current"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: Total-active-Power
+    address: 1014
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "W"
+    device_class: "power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: Total-apparent-Power
+    address: 1016
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "VA"
+    device_class: "apparent_power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  ## Phase A
   
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
