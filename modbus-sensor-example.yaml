@@ -93,6 +93,60 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 2
 
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: B-Current
+    address: 1043
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "A"
+    device_class: "current"
+    state_class: "measurement"
+    accuracy_decimals: 2
+  
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: B-active-Power
+    address: 1045
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "W"
+    device_class: "power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: B-apparent-Power
+    address: 1047
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "VA"
+    device_class: "apparent_power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: B-Power-Factor
+    address: 1049
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "%"
+    device_class: "power_factor"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: B-Frequency
+    address: 1054
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "Hz"
+    device_class: "frequency"
+    state_class: "measurement"
+    accuracy_decimals: 2
 
  ## Phase C
 
@@ -107,13 +161,57 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 2
 
-
-binary_sensor:
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
-    name: A overpower error
-    address: 1031
+    name: C-Current
+    address: 1063
     value_type: FP32  
     register_type: read
+    unit_of_measurement: "A"
+    device_class: "current"
+    state_class: "measurement"
+    accuracy_decimals: 2
+  
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: C-active-Power
+    address: 1065
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "W"
+    device_class: "power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: C-apparent-Power
+    address: 1067
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "VA"
+    device_class: "apparent_power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: C-Power-Factor
+    address: 1069
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "%"
+    device_class: "power_factor"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: C-Frequency
+    address: 1074
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "Hz"
+    device_class: "frequency"
     state_class: "measurement"
     accuracy_decimals: 2
