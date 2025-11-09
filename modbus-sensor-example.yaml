@@ -70,7 +70,9 @@ sensor:
     device_class: "voltage"
     state_class: "measurement"
     accuracy_decimals: 2
- 
+
+
+ ## Phase C
 
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
