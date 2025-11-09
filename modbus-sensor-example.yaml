@@ -1,0 +1,45 @@
+modbustcp:
+  - id: modbustesttcp
+    host: 192.168.178.46
+    port: 502
+    
+modbustcp_controller:
+  - id: modbus_device
+    modbustcp_id: modbustesttcp
+    address: 1
+    update_interval: 1s
+
+sensor:
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: A-Voltage
+    address: 1021
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "V"
+    device_class: "Volt"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: B-Voltage
+    address: 1041
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "V"
+    device_class: "Volt"
+    state_class: "measurement"
+    accuracy_decimals: 2
+ 
+
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: C-Voltage
+    address: 1061
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "V"
+    device_class: "Volt"
+    state_class: "measurement"
+    accuracy_decimals: 2
