@@ -57,6 +57,7 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 2
 
+A power factor 1029
   
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
@@ -94,5 +95,16 @@ sensor:
     register_type: read
     unit_of_measurement: "V"
     device_class: "voltage"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+
+binary_sensor:
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: A overpower error
+    address: 1031
+    value_type: FP32  
+    register_type: read
     state_class: "measurement"
     accuracy_decimals: 2
