@@ -23,6 +23,7 @@ sensor:
     device_class: "voltage"
     state_class: "measurement"
     accuracy_decimals: 2
+
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
     name: A-Current
@@ -33,12 +34,31 @@ sensor:
     device_class: "current"
     state_class: "measurement"
     accuracy_decimals: 2
+  
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: A-Power
+    address: 1025
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "W"
+    device_class: "power"
+    state_class: "measurement"
+    accuracy_decimals: 2
+  
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: A-Frequency
+    address: 1025
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "Hz"
+    device_class: "frequency"
+    state_class: "measurement"
+    accuracy_decimals: 2
+  
 
-
-
-
-
-
+## Phase B
 
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
