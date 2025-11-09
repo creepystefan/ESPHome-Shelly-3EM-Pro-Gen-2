@@ -10,6 +10,9 @@ modbustcp_controller:
     update_interval: 1s
 
 sensor:
+
+  # Phase A
+  
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
     name: A-Voltage
@@ -17,9 +20,25 @@ sensor:
     value_type: FP32  
     register_type: read
     unit_of_measurement: "V"
-    device_class: "Volt"
+    device_class: "voltage"
     state_class: "measurement"
     accuracy_decimals: 2
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: A-Current
+    address: 1023
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "A"
+    device_class: "current"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
+
+
+
+
+
 
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
@@ -28,7 +47,7 @@ sensor:
     value_type: FP32  
     register_type: read
     unit_of_measurement: "V"
-    device_class: "Volt"
+    device_class: "voltage"
     state_class: "measurement"
     accuracy_decimals: 2
  
@@ -40,6 +59,6 @@ sensor:
     value_type: FP32  
     register_type: read
     unit_of_measurement: "V"
-    device_class: "Volt"
+    device_class: "voltage"
     state_class: "measurement"
     accuracy_decimals: 2
