@@ -57,8 +57,17 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 2
 
-A power factor 1029
-  
+  - platform: modbustcp_controller
+    modbustcp_controller_id: modbus_device
+    name: A-Power-Factor
+    address: 1029
+    value_type: FP32  
+    register_type: read
+    unit_of_measurement: "%"
+    device_class: "power_factor"
+    state_class: "measurement"
+    accuracy_decimals: 2
+
   - platform: modbustcp_controller
     modbustcp_controller_id: modbus_device
     name: A-Frequency
