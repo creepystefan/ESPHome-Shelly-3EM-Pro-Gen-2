@@ -1,9 +1,5 @@
-# ESPHome-Shelly-HTTP-Request
-
-
 # ESPhome - Shelly 3EM Pro Gen2 Modbus TCP Sensor
 
-# External Component
 ```yaml
 external_components:
   - source: github://creepystefan/esphome_tcp
